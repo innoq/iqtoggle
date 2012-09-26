@@ -1,0 +1,37 @@
+{
+  "name": "iqtoggle",
+  "title": "iQToggle",
+  "description": "jQuery plugin to provide a declarative way for conditionally controlling the visibility of elements.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/innoq/iqtoggle",
+  "author": {
+    "name": "innoQ Deutschland GmbH"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/innoq/iqtoggle.git"
+  },
+  "bugs": {
+    "url": "https://github.com/innoq/iqtoggle/issues"
+  },
+  "licenses": [
+    {
+      "type": "Apache License, Version 2.0",
+      "url": "https://github.com/innoq/iqtoggle/blob/master/LICENSE"
+    }
+  ],
+  "dependencies": {
+    "jquery": ">= 1.6"
+  },
+  "keywords": [],
+
+  "engines": {
+    "node": ">= 0.6.0"
+  },
+  "scripts": {
+    "test": "grunt lint qunit --verbose"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.15"
+  }
+}
