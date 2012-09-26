@@ -1,6 +1,8 @@
 # iQToggle
 
-jQuery plugin to provide a declarative way for conditionally controlling the visibility of elements.
+[![Build Status](https://secure.travis-ci.org/innoq/iqtoggle.png)](http://travis-ci.org/innoq/iqtoggle)
+
+iQToggle is a jQuery plugin to provide a declarative way for conditionally controlling the visibility of elements.
 
 ## Getting Started
 Download the [production version][min] or the [development version][max].
