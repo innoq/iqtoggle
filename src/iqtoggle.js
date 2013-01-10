@@ -24,8 +24,8 @@ limitations under the License.
  */
 function IqToggle(selector, options) {
 	this.el = $(selector);
-    this.provider = options.provider;
-    this.what = options.what ? options.what : "visible";
+	this.provider = options.provider;
+	this.what = options.what ? options.what : "visible";
 
 	var self = this;
 	this.provider.each(function(i, node) {
@@ -52,15 +52,15 @@ IqToggle.prototype.updateState = function() {
 		return !match;
 	});
 
-    if (this.what === "visible") {
-        this.el[match ? "show" : "hide"]();
-    } else if (this.what === "invisible") {
-        this.el[match ? "hide" : "show"]();
-    } else if (this.what === "enabled") {
-        this.el.prop("disabled", !match);
-    } else if (this.what === "disabled") {
-        this.el.prop("disabled", match);
-    }
+	if (this.what === "visible") {
+		this.el[match ? "show" : "hide"]();
+	} else if (this.what === "invisible") {
+		this.el[match ? "hide" : "show"]();
+	} else if (this.what === "enabled") {
+		this.el.prop("disabled", !match);
+	} else if (this.what === "disabled") {
+		this.el.prop("disabled", match);
+	}
 };
 
 // -- public
