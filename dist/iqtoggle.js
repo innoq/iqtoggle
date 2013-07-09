@@ -1,6 +1,6 @@
-/*! iQToggle - v0.1.0 -   2012-09-26
+/*! iQToggle - v0.1.1 -   2013-07-09
   * https://github.com/innoq/iqtoggle
-  * Copyright (c) 2012 innoQ Deutschland GmbH.
+  * Copyright (c) 2013 innoQ Deutschland GmbH.
   * Licensed under the Apache License, Version 2.0.
   */
 
@@ -15,8 +15,8 @@
  */
 function IqToggle(selector, options) {
 	this.el = $(selector);
-    this.provider = options.provider;
-    this.what = options.what ? options.what : "visible";
+	this.provider = options.provider;
+	this.what = options.what ? options.what : "visible";
 
 	var self = this;
 	this.provider.each(function(i, node) {
@@ -32,7 +32,7 @@ function IqToggle(selector, options) {
 
 /*
  * Updates the state (visible/invisible or enabled/disabled) of all
- * connected elements 
+ * connected elements
  */
 IqToggle.prototype.updateState = function() {
 	var match = false;
@@ -43,15 +43,15 @@ IqToggle.prototype.updateState = function() {
 		return !match;
 	});
 
-    if (this.what === "visible") {
-        this.el[match ? "show" : "hide"]();
-    } else if (this.what === "invisible") {
-        this.el[match ? "hide" : "show"]();
-    } else if (this.what === "enabled") {
-        this.el.prop("disabled", !match);
-    } else if (this.what === "disabled") {
-        this.el.prop("disabled", match);
-    }
+	if (this.what === "visible") {
+		this.el[match ? "show" : "hide"]();
+	} else if (this.what === "invisible") {
+		this.el[match ? "hide" : "show"]();
+	} else if (this.what === "enabled") {
+		this.el.prop("disabled", !match);
+	} else if (this.what === "disabled") {
+		this.el.prop("disabled", match);
+	}
 };
 
 // -- public
@@ -59,8 +59,8 @@ IqToggle.prototype.updateState = function() {
 /**
  * TODO comment me
  */
-$.fn.toggleIfSelected = function(selector, what) {
-	var provider = $(selector);
+$.fn.toggleIfSelected = function(selector, what, scope) {
+	var provider = $(selector, scope);
 	this.each(function(i, node) {
 		new IqToggle(node, { provider: provider, what: what });
 	});
