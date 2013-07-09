@@ -41,7 +41,7 @@ function IqToggle(selector, options) {
 
 /*
  * Updates the state (visible/invisible or enabled/disabled) of all
- * connected elements 
+ * connected elements
  */
 IqToggle.prototype.updateState = function() {
 	var match = false;
@@ -68,8 +68,8 @@ IqToggle.prototype.updateState = function() {
 /**
  * TODO comment me
  */
-$.fn.toggleIfSelected = function(selector, what) {
-	var provider = $(selector);
+$.fn.toggleIfSelected = function(selector, what, scope) {
+	var provider = $(selector, scope);
 	this.each(function(i, node) {
 		new IqToggle(node, { provider: provider, what: what });
 	});
