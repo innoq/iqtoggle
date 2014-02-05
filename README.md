@@ -68,7 +68,7 @@ _(More coming soon)_
 _(Nothing yet)_
 
 ## License
-Copyright (c) 2012 [innoQ Deutschland GmbH](http://www.innoq.com/en);
+Copyright (c) 2014 [innoQ Deutschland GmbH](http://www.innoq.com/en);
 Licensed under the Apache License, Version 2.
 
 ## Contributing
