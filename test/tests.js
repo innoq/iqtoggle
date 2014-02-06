@@ -1,5 +1,4 @@
-/*jslint vars: true, unparam: true, browser: true, white: true */
-/*global jQuery, QUnit, module, test, ok, strictEqual, raises */
+/*global module, test, strictEqual */
 
 /* Copyright 2012 innoQ Deutschland GmbH
 

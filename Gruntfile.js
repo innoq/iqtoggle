@@ -9,7 +9,7 @@ module.exports = function(grunt) {
       '  <%= grunt.template.today("yyyy-mm-dd") %>\n' +
       '  <%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
       '  * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>.' + "\n" +
-      '  * Licensed under the <%= _.pluck(pkg.licenses, "type").join(", ") %>.' + "\n" + 
+      '  * Licensed under the <%= _.pluck(pkg.licenses, "type").join(", ") %>.' + "\n" +
       '  */' + "\n\n",
     // Task configuration.
     concat: {
@@ -32,6 +32,7 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
+      files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
       options: {
         curly: true,
         eqeqeq: true,
@@ -58,12 +59,8 @@ module.exports = function(grunt) {
     },
     watch: {
       gruntfile: {
-        files: '<%= jshint.gruntfile.src %>',
-        tasks: ['jshint:gruntfile']
-      },
-      lib_test: {
-        files: '<%= jshint.lib_test.src %>',
-        tasks: ['jshint:lib_test', 'qunit']
+        files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
+        tasks: ['test']
       }
     }
   });
@@ -77,5 +74,6 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
-
+  // Test task
+  grunt.registerTask('test', ['jshint', 'qunit']);
 };
