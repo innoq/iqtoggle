@@ -1,6 +1,6 @@
 /*! iQToggle - v0.1.1 -   2014-02-05
   * https://github.com/innoq/iqtoggle
-  * Copyright (c) 2014 innoQ Deutschland GmbH.
+  * Copyright 2012-2014 innoQ Deutschland GmbH.
   * Licensed under the Apache License, Version 2.0.
   */
 

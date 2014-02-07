@@ -6,9 +6,9 @@ module.exports = function(grunt) {
     // Metadata.
     pkg: grunt.file.readJSON('package.json'),
     banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-      '  <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+      '  2012-<%= grunt.template.today("yyyy-mm-dd") %>\n' +
       '  <%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-      '  * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>.' + "\n" +
+      '  * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>.' + "\n" +
       '  * Licensed under the <%= _.pluck(pkg.licenses, "type").join(", ") %>.' + "\n" +
       '  */' + "\n\n",
     // Task configuration.
