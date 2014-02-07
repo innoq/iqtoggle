@@ -24,14 +24,19 @@
     "jquery": ">= 1.6"
   },
   "keywords": [],
-
+  
   "engines": {
-    "node": ">= 0.6.0"
-  },
-  "scripts": {
-    "test": "grunt lint qunit --verbose"
+    "node": ">= 0.10.0"
   },
   "devDependencies": {
-    "grunt": "~0.3.15"
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-qunit": "~0.3.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.7"
+  },
+  "scripts": {
+    "test": "grunt --verbose"
   }
 }
