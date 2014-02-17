@@ -39,12 +39,13 @@ function IqToggle(selector, options) {
 	this.updateState();
 
 	// force change event upon de-selection of radio buttons
-	this.provider.filter("input:radio").map(function(i, node) {
+	var radios = this.provider.filter("input:radio").map(function(i, node) {
 		var radiogroup = $(node).attr("name");
 		var selector = 'input:radio[name="' + radiogroup + '"]'; // XXX: brittle
 		var radios = $(selector);
 		return Array.prototype.slice.call(radios);
-	}).on("change", $.proxy(this, "onRadioChange"));
+	});
+	$.unique(radios).on("change", $.proxy(this, "onRadioChange"));
 }
 
 IqToggle.prototype.onRadioChange = function(ev) {
