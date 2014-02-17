@@ -1,6 +1,6 @@
-/*! iQToggle - v0.1.1 -   2014-02-05
+/*! iQToggle - v0.1.2 -   2012-2014-02-17
   * https://github.com/innoq/iqtoggle
-  * Copyright 2012-2014 innoQ Deutschland GmbH.
+  * Copyright 2014 innoQ Deutschland GmbH.
   * Licensed under the Apache License, Version 2.0.
   */
 
@@ -16,19 +16,35 @@
 function IqToggle(selector, options) {
 	this.el = $(selector);
 	this.provider = options.provider;
-	this.what = options.what ? options.what : "visible";
+	this.what = options.what || "visible";
 
-	var self = this;
+	var onChange = $.proxy(this, "updateState");
 	this.provider.each(function(i, node) {
 		var el = $(node);
 		if(el.is("option")) {
 			el = el.parent();
 		}
-		el.on("change", $.proxy(self, "updateState"));
+		el.on("change", onChange);
 	});
 
 	this.updateState();
+
+	// force change event upon de-selection of radio buttons
+	var radios = this.provider.filter("input:radio").map(function(i, node) {
+		var radiogroup = $(node).attr("name");
+		var selector = 'input:radio[name="' + radiogroup + '"]'; // XXX: brittle
+		var radios = $(selector);
+		return Array.prototype.slice.call(radios);
+	});
+	$.unique(radios).on("change", $.proxy(this, "onRadioChange"));
 }
+
+IqToggle.prototype.onRadioChange = function(ev) {
+	if(this.previousRadio && this.previousRadio[0] !== ev.currentTarget) {
+		this.previousRadio.trigger("change");
+	}
+	this.previousRadio = $(ev.currentTarget); // XXX: correct?
+};
 
 /*
  * Updates the state (visible/invisible or enabled/disabled) of all
