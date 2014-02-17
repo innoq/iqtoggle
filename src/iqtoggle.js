@@ -25,7 +25,7 @@ limitations under the License.
 function IqToggle(selector, options) {
 	this.el = $(selector);
 	this.provider = options.provider;
-	this.what = options.what ? options.what : "visible";
+	this.what = options.what || "visible";
 
 	var onChange = $.proxy(this, "updateState");
 	this.provider.each(function(i, node) {
