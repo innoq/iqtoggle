@@ -37,7 +37,22 @@ function IqToggle(selector, options) {
 	});
 
 	this.updateState();
+
+	// force change event upon de-selection of radio buttons
+	this.provider.filter("input:radio").map(function(i, node) {
+		var radiogroup = $(node).attr("name");
+		var selector = 'input:radio[name="' + radiogroup + '"]'; // XXX: brittle
+		var radios = $(selector);
+		return Array.prototype.slice.call(radios);
+	}).on("change", $.proxy(this, "onRadioChange"));
 }
+
+IqToggle.prototype.onRadioChange = function(ev) {
+	if(this.previousRadio && this.previousRadio[0] !== ev.currentTarget) {
+		this.previousRadio.trigger("change");
+	}
+	this.previousRadio = $(ev.currentTarget); // XXX: correct?
+};
 
 /*
  * Updates the state (visible/invisible or enabled/disabled) of all

@@ -265,7 +265,6 @@ limitations under the License.
         
         $("#radio2").prop("checked", true);
         $("#radio2").change();
-        $("#radio1").change(); // for some reason, the change event for radio1 is not fired automatically
         strictEqual($("#radio1").is(":checked"), false, "radio1 is not selected.");
         strictEqual($("#radio2").is(":checked"), true, "radio2 is selected.");
         strictEqual($("#target4").is(":visible"), false, "radio2 is selected -> #target4 is invisible");
