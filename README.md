@@ -77,3 +77,10 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 Please don't edit files in the `dist` subdirectory as they are generated via grunt. You'll find source code in the `src` subdirectory!
 
 While grunt can run the included unit tests via PhantomJS, this shouldn't be considered a substitute for the real thing. Please be sure to test the `test/*.html` unit test file(s) in _actual_ browsers.
+
+* `npm install` install development dependencies
+* `grunt dependencies` downloads third-party components
+* `grunt test` runs the test suite
+* `grunt dist` creates release files 
+
+Or run all grunt-taks by calling `grunt`. Add `--verbose` option to get detailed output.

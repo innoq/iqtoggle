@@ -62,6 +62,14 @@ module.exports = function(grunt) {
         files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
         tasks: ['test']
       }
+    },
+    bower: {
+      install: {
+        options: {
+          cleanTargetDir: true,
+          cleanBowerDir: true
+        }
+      }
     }
   });
 
@@ -71,9 +79,15 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-bower-task');
 
-  // Default task.
-  grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
+  // Install dependencies via bower
+  grunt.registerTask('dependencies', ['bower:install']);
   // Test task
   grunt.registerTask('test', ['jshint', 'qunit']);
+  // Create distribution files
+  grunt.registerTask('dist', ['concat', 'uglify']);
+  // Default task.
+  grunt.registerTask('default', ['dependencies', 'test', 'dist']);
+
 };
