@@ -27,13 +27,13 @@ function IqToggle(selector, options) {
 	this.provider = options.provider;
 	this.what = options.what ? options.what : "visible";
 
-	var self = this;
+	var onChange = $.proxy(this, "updateState");
 	this.provider.each(function(i, node) {
 		var el = $(node);
 		if(el.is("option")) {
 			el = el.parent();
 		}
-		el.on("change", $.proxy(self, "updateState"));
+		el.on("change", onChange);
 	});
 
 	this.updateState();
